@@ -1,0 +1,224 @@
+:root {
+  --bg:      #fbfaf8;
+  --fg:      #16151a;
+  --muted:   #6b6a73;
+  --rule:    #e3e1dc;
+  --accent:  #0a6b5f;
+  --card:    #ffffff;
+  --measure: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:     #111013;
+    --fg:     #ececef;
+    --muted:  #9a98a2;
+    --rule:   #2a292f;
+    --accent: #4fd1bd;
+    --card:   #191820;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 5rem) 1.25rem 4rem;
+  max-width: var(--measure);
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem; top: 1rem;
+  padding: .5rem .75rem;
+  background: var(--card);
+  z-index: 1;
+}
+
+/* visually hidden but read by screen readers */
+.vh {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- hero ---- */
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 8vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.hero .role {
+  margin: .6rem 0 0;
+  font-size: 1.0625rem;
+  color: var(--muted);
+}
+
+.hero .pitch {
+  margin: 1.5rem 0 0;
+  font-size: 1.125rem;
+}
+
+/* ---- sections ---- */
+
+section { margin-top: 3.5rem; }
+
+h2 {
+  margin: 0 0 1.5rem;
+  padding-bottom: .5rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: .8125rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
+
+.note {
+  margin: 1.5rem 0 0;
+  font-size: .875rem;
+  color: var(--muted);
+}
+
+/* ---- apps ---- */
+
+.apps { margin: 0; padding: 0; list-style: none; }
+
+.app {
+  padding: 1.125rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.app:first-child { padding-top: 0; }
+.app:last-child { border-bottom: 0; }
+
+.app .ctx {
+  margin: .25rem 0 0;
+  font-size: .875rem;
+  color: var(--muted);
+}
+
+.app .desc { margin: .625rem 0 0; font-size: .9375rem; }
+
+.app .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: .75rem 0 0;
+  font-size: .875rem;
+}
+
+/* ---- cv ---- */
+
+.cv { margin: 0; padding: 0; list-style: none; }
+.cv > li { margin-bottom: 1.75rem; }
+.cv > li:last-child { margin-bottom: 0; }
+
+.co {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .25rem 1rem;
+}
+
+.when {
+  font-size: .8125rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.title { margin: .25rem 0 0; font-size: .9375rem; }
+p.title { color: var(--muted); }
+
+.roles {
+  margin: .75rem 0 0;
+  padding: 0 0 0 1rem;
+  list-style: none;
+  border-left: 2px solid var(--rule);
+}
+.roles li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .1rem 1rem;
+  padding: .1rem 0;
+}
+/* current role */
+.roles li:first-child .title { font-weight: 600; }
+
+.edu {
+  margin: 2rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: .9375rem;
+  color: var(--muted);
+}
+.edu strong { color: var(--fg); font-weight: 600; }
+
+/* ---- oss ---- */
+
+ul.oss { margin: 0; padding: 0; list-style: none; }
+ul.oss li { margin-bottom: 1.125rem; }
+ul.oss p { margin: .25rem 0 0; font-size: .9375rem; color: var(--muted); }
+
+/* ---- footer ---- */
+
+footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .9375rem;
+}
+
+.colophon {
+  margin: 1.5rem 0 0;
+  font-size: .8125rem;
+  color: var(--muted);
+}
+
+/* Narrow: stack every role above its dates. Left to flex-wrap, short rows keep the
+   date inline while long ones push it down, which reads as ragged. */
+@media (max-width: 30rem) {
+  .roles li { display: block; }
+  .roles li .when { display: block; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
