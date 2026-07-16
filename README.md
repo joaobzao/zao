@@ -13,8 +13,9 @@ Open `index.html` in a browser. That's it.
 
 ## Deploy
 
-Cloudflare Workers (static assets), connected to this repo from the dashboard — pushes
-to `main` deploy automatically. No build command; assets are served from the repo root.
+Cloudflare Workers (static assets), connected to `joaobzao/zao` via the dashboard's Git
+integration — pushes to `main` deploy automatically. No build command; assets are served
+from the repo root, including `assets/`.
 
 - `zao.capas.workers.dev` — the deployment
 - `zao.pt` — custom domain
