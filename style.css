@@ -1,11 +1,21 @@
 :root {
-  --bg:      #fbfaf8;
-  --fg:      #16151a;
-  --muted:   #6b6a73;
-  --rule:    #e3e1dc;
-  --accent:  #0a6b5f;
-  --card:    #ffffff;
-  --measure: 40rem;
+  /* type scale — deliberate steps, not four sizes that nearly match */
+  --t-meta:  0.75rem;    /* 12px — band labels, dates */
+  --t-small: 0.8125rem;  /* 13px — stats, notes */
+  --t-body:  0.9375rem;  /* 15px — descriptions */
+  --t-lead:  1.0625rem;  /* 17px — app names, role line */
+  --t-pitch: 1.125rem;   /* 18px — hero paragraph */
+
+  --bg:     #fbfaf8;
+  --fg:     #16151a;
+  --muted:  #6b6a73;
+  --faint:  #8e8d96;
+  --rule:   #e6e4df;
+  --hair:   rgba(0,0,0,.10);
+  --accent: #0a6b5f;
+  --star:   #d99a2b;
+
+  --measure: 42rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,23 +23,24 @@
     --bg:     #111013;
     --fg:     #ececef;
     --muted:  #9a98a2;
+    --faint:  #77757f;
     --rule:   #2a292f;
+    --hair:   rgba(255,255,255,.12);
     --accent: #4fd1bd;
-    --card:   #191820;
+    --star:   #e8b44c;
   }
 }
 
 * { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0 auto;
-  padding: clamp(2rem, 6vw, 5rem) 1.25rem 4rem;
+  padding: clamp(2.5rem, 7vw, 5.5rem) 1.25rem 4rem;
   max-width: var(--measure);
   background: var(--bg);
   color: var(--fg);
-  font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
 }
@@ -37,123 +48,153 @@ body {
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
 a:hover { text-decoration-thickness: 2px; }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-.skip {
-  position: absolute;
-  left: -9999px;
-}
-.skip:focus {
-  left: 1rem; top: 1rem;
-  padding: .5rem .75rem;
-  background: var(--card);
-  z-index: 1;
-}
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 1rem; top: 1rem; padding: .5rem .75rem; background: var(--bg); z-index: 1; }
 
-/* visually hidden but read by screen readers */
 .vh {
-  position: absolute;
-  width: 1px; height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
 }
 
-/* ---- hero ---- */
+/* ── hero ───────────────────────────────────────── */
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.25rem, 8vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 9vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
 .hero .role {
-  margin: .6rem 0 0;
-  font-size: 1.0625rem;
-  color: var(--muted);
+  margin: .75rem 0 0;
+  font-size: var(--t-lead);
+  line-height: 1.5;
 }
+.hero .role .where { color: var(--muted); }
 
 .hero .pitch {
-  margin: 1.5rem 0 0;
-  font-size: 1.125rem;
+  margin: 1.75rem 0 0;
+  font-size: var(--t-pitch);
+  line-height: 1.6;
+  max-width: 34rem;
 }
 
-/* ---- sections ---- */
+/* ── bands ──────────────────────────────────────── */
 
-section { margin-top: 3.5rem; }
+section { margin-top: 4rem; }
 
 h2 {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.75rem;
   padding-bottom: .5rem;
   border-bottom: 1px solid var(--rule);
-  font-size: .8125rem;
+  font-size: var(--t-meta);
   font-weight: 600;
-  letter-spacing: .1em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--faint);
 }
 
-h3 { margin: 0; font-size: 1.0625rem; letter-spacing: -0.01em; }
+h3 { margin: 0; font-size: var(--t-lead); letter-spacing: -0.012em; }
 
 .note {
-  margin: 1.5rem 0 0;
-  font-size: .875rem;
+  margin: 1.75rem 0 0;
+  font-size: var(--t-small);
+  line-height: 1.55;
   color: var(--muted);
 }
+.note .asof { display: block; margin-top: .3rem; color: var(--faint); }
 
-/* ---- apps ---- */
+/* ── apps ───────────────────────────────────────── */
 
 .apps { margin: 0; padding: 0; list-style: none; }
 
 .app {
-  padding: 1.125rem 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.125rem;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--rule);
 }
 .app:first-child { padding-top: 0; }
-.app:last-child { border-bottom: 0; }
+.apps:last-of-type .app:last-child { border-bottom: 0; }
+
+.icon {
+  display: block;
+  width: 64px; height: 64px;
+  border-radius: 22%;              /* approximates the iOS superellipse */
+  border: 1px solid var(--hair);
+  background: var(--bg);
+}
+.icon.sm { width: 40px; height: 40px; }
 
 .app .ctx {
-  margin: .25rem 0 0;
-  font-size: .875rem;
+  margin: .2rem 0 0;
+  font-size: var(--t-small);
   color: var(--muted);
 }
 
-.app .desc { margin: .625rem 0 0; font-size: .9375rem; }
+.app .desc {
+  margin: .625rem 0 0;
+  font-size: var(--t-body);
+  line-height: 1.55;
+}
+
+/* ── stats ──────────────────────────────────────── */
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.1rem;
+  margin: .75rem 0 0;
+  font-size: var(--t-small);
+  color: var(--muted);
+  line-height: 1.45;
+}
+.stats .stat { white-space: nowrap; }
+.stats b {
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+.stats .star { color: var(--star); margin-left: .1em; }
+.stats .of { color: var(--faint); }
 
 .app .links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: .75rem 0 0;
-  font-size: .875rem;
+  margin: .8rem 0 0;
+  font-size: var(--t-small);
 }
 
-/* ---- cv ---- */
+/* ── open source ────────────────────────────────── */
+
+ul.oss { margin: 1.75rem 0 0; padding: 0; list-style: none; }
+ul.oss li { margin-bottom: 1.125rem; }
+ul.oss li:last-child { margin-bottom: 0; }
+ul.oss p { margin: .2rem 0 0; font-size: var(--t-body); color: var(--muted); }
+
+/* ── cv ─────────────────────────────────────────── */
 
 .cv { margin: 0; padding: 0; list-style: none; }
 .cv > li { margin-bottom: 1.75rem; }
 .cv > li:last-child { margin-bottom: 0; }
 
 .co {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
+  display: flex; flex-wrap: wrap;
+  align-items: baseline; justify-content: space-between;
   gap: .25rem 1rem;
 }
 
 .when {
-  font-size: .8125rem;
-  color: var(--muted);
+  font-size: var(--t-meta);
+  color: var(--faint);
   font-variant-numeric: tabular-nums;
 }
 
-.title { margin: .25rem 0 0; font-size: .9375rem; }
+.title { margin: .25rem 0 0; font-size: var(--t-body); }
 p.title { color: var(--muted); }
 
 .roles {
@@ -163,60 +204,53 @@ p.title { color: var(--muted); }
   border-left: 2px solid var(--rule);
 }
 .roles li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
+  display: flex; flex-wrap: wrap;
+  align-items: baseline; justify-content: space-between;
   gap: .1rem 1rem;
-  padding: .1rem 0;
+  padding: .12rem 0;
 }
-/* current role */
 .roles li:first-child .title { font-weight: 600; }
 
 .edu {
   margin: 2rem 0 0;
   padding-top: 1.25rem;
   border-top: 1px solid var(--rule);
-  font-size: .9375rem;
+  font-size: var(--t-body);
   color: var(--muted);
 }
 .edu strong { color: var(--fg); font-weight: 600; }
 
-/* ---- oss ---- */
-
-ul.oss { margin: 0; padding: 0; list-style: none; }
-ul.oss li { margin-bottom: 1.125rem; }
-ul.oss p { margin: .25rem 0 0; font-size: .9375rem; color: var(--muted); }
-
-/* ---- footer ---- */
+/* ── footer ─────────────────────────────────────── */
 
 footer {
-  margin-top: 3.5rem;
+  margin-top: 4rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
 }
 
 .contact {
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; flex-wrap: wrap;
   gap: 1.25rem;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   list-style: none;
-  font-size: .9375rem;
+  font-size: var(--t-body);
 }
 
 .colophon {
   margin: 1.5rem 0 0;
-  font-size: .8125rem;
-  color: var(--muted);
+  font-size: var(--t-meta);
+  color: var(--faint);
 }
 
-/* Narrow: stack every role above its dates. Left to flex-wrap, short rows keep the
-   date inline while long ones push it down, which reads as ragged. */
+/* ── narrow ─────────────────────────────────────── */
+
+/* Stack every role above its dates. Left to flex-wrap, short rows keep the date
+   inline while long ones push it down, which reads as ragged. */
 @media (max-width: 30rem) {
   .roles li { display: block; }
   .roles li .when { display: block; }
+  .app { gap: .875rem; }
+  .icon { width: 52px; height: 52px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {

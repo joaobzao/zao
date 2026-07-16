@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>João Zão — Principal iOS Engineer</title>
-<meta name="description" content="João Zão — Principal iOS Engineer at Blip.pt, Porto. Thirteen years building mobile apps for Android and iOS.">
+<meta name="description" content="João Zão — Principal iOS Engineer at Blip.pt and co-founder of PadelTeams. Porto, Portugal. Thirteen years building mobile apps for iOS and Android.">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
 </head>
@@ -14,7 +14,11 @@
 
 <header class="hero">
   <h1>João Zão</h1>
-  <p class="role">Principal iOS Engineer at <a href="https://blip.pt">Blip.pt</a> — Porto, Portugal</p>
+  <p class="role">
+    Principal iOS Engineer at <a href="https://blip.pt">Blip.pt</a> ·
+    Co-founder of <a href="#padelteams">PadelTeams</a><br>
+    <span class="where">Porto, Portugal</span>
+  </p>
   <p class="pitch">
     Thirteen years building mobile apps. I started on Android, moved to iOS, and never
     put either down — these days mostly Swift, with Kotlin Multiplatform for the things
@@ -24,62 +28,125 @@
 
 <main id="main">
 
-  <section aria-labelledby="work">
-    <h2 id="work">Work</h2>
+  <!-- gl=GB on the betting Play links is load-bearing: Google geo-restricts gambling
+       apps, so these 404 from Portugal (and most non-UK regions) without it. -->
+  <section aria-labelledby="blip">
+    <h2 id="blip">At Blip</h2>
 
-    <!-- gl=GB on the betting Play links is load-bearing: Google geo-restricts gambling
-         apps, so these 404 from Portugal (and most non-UK regions) without it. -->
     <ul class="apps">
       <li class="app">
-        <h3>Paddy Power</h3>
-        <p class="ctx">Sports betting · at Blip</p>
-        <p class="links">
-          <a href="https://play.google.com/store/apps/details?id=com.paddypower.sportsbook.u.inhouse&amp;gl=GB&amp;hl=en">Play Store</a>
-          <a href="https://apps.apple.com/gb/app/paddy-power-sports-betting/id382030091">App Store</a>
-        </p>
+        <img class="icon" src="assets/paddypower.jpg" width="64" height="64" loading="lazy" alt="Paddy Power app icon">
+        <div class="body">
+          <h3>Paddy Power</h3>
+          <p class="ctx">Sports betting</p>
+          <p class="stats">
+            <span class="stat">App Store <b>4.7</b><span class="star" aria-hidden="true">★</span> <span class="of">260k ratings</span></span>
+            <span class="stat">Google Play <b>4.3</b><span class="star" aria-hidden="true">★</span> <span class="of">44k ratings</span></span>
+            <span class="stat"><b>1M+</b> <span class="of">installs</span></span>
+          </p>
+          <p class="links">
+            <a href="https://play.google.com/store/apps/details?id=com.paddypower.sportsbook.u.inhouse&amp;gl=GB&amp;hl=en">Play Store</a>
+            <a href="https://apps.apple.com/gb/app/paddy-power-sports-betting/id382030091">App Store</a>
+          </p>
+        </div>
       </li>
 
       <li class="app">
-        <h3>Sky Bet</h3>
-        <p class="ctx">Sports betting · at Blip</p>
-        <p class="links">
-          <a href="https://play.google.com/store/apps/details?id=com.skybet.app.skybet&amp;gl=GB&amp;hl=en">Play Store</a>
-          <a href="https://apps.apple.com/gb/app/sky-bet-sports-betting/id428237841">App Store</a>
-        </p>
+        <img class="icon" src="assets/skybet.jpg" width="64" height="64" loading="lazy" alt="Sky Bet app icon">
+        <div class="body">
+          <h3>Sky Bet</h3>
+          <p class="ctx">Sports betting</p>
+          <p class="stats">
+            <span class="stat">App Store <b>4.7</b><span class="star" aria-hidden="true">★</span> <span class="of">68k ratings</span></span>
+            <span class="stat">Google Play <b>4.5</b><span class="star" aria-hidden="true">★</span> <span class="of">50k ratings</span></span>
+            <span class="stat"><b>1M+</b> <span class="of">installs</span></span>
+          </p>
+          <p class="links">
+            <a href="https://play.google.com/store/apps/details?id=com.skybet.app.skybet&amp;gl=GB&amp;hl=en">Play Store</a>
+            <a href="https://apps.apple.com/gb/app/sky-bet-sports-betting/id428237841">App Store</a>
+          </p>
+        </div>
       </li>
 
       <li class="app">
-        <h3>Betfair</h3>
-        <p class="ctx">Sports betting · at Blip</p>
-        <p class="links">
-          <a href="https://play.google.com/store/apps/details?id=com.betfair.sportsbook&amp;gl=GB&amp;hl=en">Play Store</a>
-          <a href="https://apps.apple.com/gb/app/betfair-sports-betting/id552024276">App Store</a>
-        </p>
-      </li>
-
-      <li class="app own">
-        <h3>PadelTeams</h3>
-        <p class="ctx">Padel team management · mine</p>
-        <p class="links">
-          <a href="https://play.google.com/store/apps/details?id=com.zebrabinaria.padelteams">Play Store</a>
-          <a href="https://apps.apple.com/us/app/padelteams/id6478245060">App Store</a>
-        </p>
-      </li>
-
-      <li class="app own">
-        <h3>Capas</h3>
-        <p class="ctx">Portuguese newspaper front pages, daily · mine</p>
-        <p class="desc">A Rust scraper publishes the day's front pages as JSON; a Kotlin
-          Multiplatform app reads it. One codebase, both platforms.</p>
-        <p class="links">
-          <a href="https://play.google.com/store/apps/details?id=com.joaobzao.capas">Play Store</a>
-          <a href="https://github.com/joaobzao/capas">Source</a>
-        </p>
+        <img class="icon" src="assets/betfair.jpg" width="64" height="64" loading="lazy" alt="Betfair app icon">
+        <div class="body">
+          <h3>Betfair</h3>
+          <p class="ctx">Sports betting</p>
+          <p class="stats">
+            <span class="stat">App Store <b>4.7</b><span class="star" aria-hidden="true">★</span> <span class="of">110k ratings</span></span>
+            <span class="stat">Google Play <b>4.4</b><span class="star" aria-hidden="true">★</span> <span class="of">25k ratings</span></span>
+            <span class="stat"><b>1M+</b> <span class="of">installs</span></span>
+          </p>
+          <p class="links">
+            <a href="https://play.google.com/store/apps/details?id=com.betfair.sportsbook&amp;gl=GB&amp;hl=en">Play Store</a>
+            <a href="https://apps.apple.com/gb/app/betfair-sports-betting/id552024276">App Store</a>
+          </p>
+        </div>
       </li>
     </ul>
 
-    <p class="note">The betting apps are team products — I work on them, I didn't build
-      them alone. PadelTeams and Capas are my own.</p>
+    <p class="note">
+      These are team products — I work on them, I didn't build them alone.
+      <span class="asof">Store figures, July 2026. Installs are Google Play only; Apple doesn't publish them.</span>
+    </p>
+  </section>
+
+  <section aria-labelledby="cofounded">
+    <h2 id="cofounded">Co-founded</h2>
+
+    <ul class="apps">
+      <li class="app" id="padelteams">
+        <img class="icon" src="assets/padelteams.jpg" width="64" height="64" loading="lazy" alt="PadelTeams app icon">
+        <div class="body">
+          <h3>PadelTeams</h3>
+          <p class="ctx">Padel club &amp; competition management</p>
+          <p class="desc">
+            Co-founded with António Fernandes. Portugal's leading platform for running
+            padel competitions and managing a club. We build the technology and run the
+            business.
+          </p>
+          <p class="links">
+            <a href="https://play.google.com/store/apps/details?id=com.zebrabinaria.padelteams">Play Store</a>
+            <a href="https://apps.apple.com/us/app/padelteams/id6478245060">App Store</a>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="also">
+    <h2 id="also">Also</h2>
+
+    <ul class="apps compact">
+      <li class="app">
+        <img class="icon sm" src="assets/capas.jpg" width="40" height="40" loading="lazy" alt="Capas app icon">
+        <div class="body">
+          <h3>Capas</h3>
+          <p class="ctx">Portuguese newspaper front pages, daily</p>
+          <p class="desc">
+            A Rust scraper publishes the day's front pages as JSON; a Kotlin Multiplatform
+            app reads it. One codebase, both platforms. Mine end to end.
+          </p>
+          <p class="links">
+            <a href="https://play.google.com/store/apps/details?id=com.joaobzao.capas">Play Store</a>
+            <a href="https://github.com/joaobzao/capas">Source</a>
+          </p>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="oss">
+      <li>
+        <h3><a href="https://github.com/joaobzao/DontPushMe">DontPushMe</a></h3>
+        <p>Test iOS push notifications without the backend. SwiftUI and TCA.</p>
+      </li>
+      <li>
+        <h3><a href="https://github.com/joaobzao/Identifiers">Identifiers</a></h3>
+        <p>Identifiers for UI testing in Swift — a reflection-based approach.</p>
+      </li>
+    </ul>
+    <p class="note">More at <a href="https://github.com/joaobzao">github.com/joaobzao</a>.</p>
   </section>
 
   <section aria-labelledby="experience">
@@ -116,21 +183,6 @@
       <strong>MSc, Electrical and Computers Engineering</strong> — Faculdade de Engenharia
       da Universidade do Porto (FEUP), 2008 — 2014.
     </p>
-  </section>
-
-  <section aria-labelledby="oss">
-    <h2 id="oss">Open source</h2>
-    <ul class="oss">
-      <li>
-        <h3><a href="https://github.com/joaobzao/DontPushMe">DontPushMe</a></h3>
-        <p>Test iOS push notifications without the backend. SwiftUI and TCA.</p>
-      </li>
-      <li>
-        <h3><a href="https://github.com/joaobzao/Identifiers">Identifiers</a></h3>
-        <p>Identifiers for UI testing in Swift — a reflection-based approach.</p>
-      </li>
-    </ul>
-    <p class="note">More at <a href="https://github.com/joaobzao">github.com/joaobzao</a>.</p>
   </section>
 
 </main>

@@ -13,5 +13,8 @@ Open `index.html` in a browser. That's it.
 
 ## Deploy
 
-Cloudflare Pages, connected to this repo. No build command; build output directory is
-the repo root. Same account as `wedding.zao.pt`.
+Cloudflare Workers (static assets), connected to this repo from the dashboard — pushes
+to `main` deploy automatically. No build command; assets are served from the repo root.
+
+- `zao.capas.workers.dev` — the deployment
+- `zao.pt` — custom domain
